@@ -3,384 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Someone Special</title>
+    <title>For Kitty 🐾 - My Love</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fff5f5;
-            color: #333;
+            color: #555;
             overflow-x: hidden;
         }
+        
         .dancing-font {
             font-family: 'Dancing Script', cursive;
         }
+        
+        .heart-container {
+            position: absolute;
+            pointer-events: none;
+        }
+        
         .heart {
-            animation: heartbeat 1.5s infinite;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b8b;
+            transform: rotate(45deg);
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.5;
         }
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        
+        .heart:before, .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b8b;
+            border-radius: 50%;
         }
-        .gift-card {
+        
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .heart:after {
+            top: 0;
+            left: -10px;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(45deg) translateY(0) scale(1); opacity: 0.7; }
+            50% { transform: rotate(45deg) translateY(-20px) scale(1.2); opacity: 0.9; }
+            100% { transform: rotate(45deg) translateY(-40px) scale(0.8); opacity: 0; }
+        }
+        
+        .message-box {
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .gift-card:hover {
+        
+        .message-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(255, 107, 139, 0.2);
         }
-        .polaroid {
-            background: white;
-            padding: 1rem 1rem 3rem;
-            box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
-            transform: rotate(3deg);
-            transition: all 0.3s ease;
+        
+        .gift-box {
+            perspective: 1000px;
         }
-        .polaroid:hover {
-            transform: rotate(0deg) scale(1.05);
+        
+        .gift {
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
         }
+        
+        .gift:hover {
+            transform: rotateY(20deg) scale(1.05);
+        }
+        
         .floating {
             animation: floating 3s ease-in-out infinite;
         }
+        
         @keyframes floating {
-            0% { transform: translateY(0px); }
+            0% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            100% { transform: translateY(0); }
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <!-- Hero Section -->
-    <header class="relative h-screen flex items-center justify-center bg-pink-50 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-pink-100 to-transparent opacity-80"></div>
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/66f21c4d-7f53-4a85-ad16-30650110e834.png" alt="Soft pink rose petals scattered on wooden background with soft lighting" class="absolute inset-0 w-full h-full object-cover" />
-        
-        <div class="z-10 text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-bold dancing-font text-pink-700 mb-4">For Someone Special</h1>
-            <p class="text-xl md:text-2xl dancing-font text-pink-600 mb-8">These gifts are just for you</p>
-            
-            <div class="flex justify-center">
-                <button onclick="scrollToGifts()" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center">
-                    <span class="mr-2">Open Gifts</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                    </svg>
-                </button>
+<body>
+    <!-- Floating Hearts -->
+    <div id="heart-container" class="heart-container"></div>
+    
+    <!-- Header -->
+    <header class="relative overflow-hidden bg-gradient-to-r from-pink-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-3xl mx-auto">
+            <img src="https://cdn.discordapp.com/attachments/1295322130422042624/1406720384908136508/WhatsApp_Image_2025-08-02_at_01.41.07_19351caf-pica.png?ex=68a37df3&is=68a22c73&hm=3a79e17dd1a6b50393a58cc8155281e6a0cde7156dea5e551e28d6c2b643898d&" alt="Cute Ghibli-style cartoon of a girl with cat ears smiling softly, pastel colors, soft lighting on her face, looking lovingly towards the viewer" class="mx-auto rounded-full w-32 h-32 object-cover border-4 border-pink-200 shadow-lg mb-4 floating" />
+            <h1 class="text-4xl md:text-5xl font-bold text-pink-600 dancing-font">For My Kitty 🐾</h1>
+            <p class="mt-4 text-lg text-pink-500">Every beat of my heart whispers your name</p>
+            <div class="mt-6 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
             </div>
         </div>
-        
-        <!-- Floating hearts in background -->
-        <div class="heart absolute text-pink-300 text-4xl top-1/4 left-1/4 opacity-70 floating" style="animation-delay: 0s;">♥</div>
-        <div class="heart absolute text-pink-200 text-3xl top-1/3 right-1/5 opacity-70 floating" style="animation-delay: 0.5s;">♥</div>
-        <div class="heart absolute text-pink-100 text-5xl bottom-1/4 left-1/3 opacity-70 floating" style="animation-delay: 1s;">♥</div>
     </header>
 
-    <!-- Gifts Section -->
-    <section id="gifts" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold dancing-font text-pink-700 mb-4">Virtual Gifts For You</h2>
-            <div class="w-24 h-1 bg-pink-400 mx-auto"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Gift 1: Personalized Message -->
-            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="messageGift">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-400 to-purple-400"></div>
-                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Special Message</h3>
-                <div class="prose prose-pink max-w-none">
-                    <p class="text-gray-700 mb-4">
-                        Every time I think of you, my heart skips a beat. You bring so much joy and light into my life, and I'm forever grateful to have you by my side.
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        Like the stars that shine in the night sky, your presence makes my world brighter and more beautiful.
-                    </p>
-                    <p class="text-gray-700">
-                        This is just a little something to remind you how much you mean to me.
-                    </p>
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white shadow-sm z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex space-x-8">
+                    <a href="#love-story" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-pink-600 hover:text-pink-800">Our Story</a>
+                    <a href="#virtual-gifts" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-pink-600 hover:text-pink-800">Virtual Gifts</a>
+                    <a href="#notes" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-pink-600 hover:text-pink-800">Love Notes</a>
                 </div>
-                <div class="mt-6 text-center">
-                    <button onclick="showConfetti('messageGift')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-4 py-2 rounded-full text-sm transition-all">
-                        Send Heart
-                    </button>
-                </div>
-            </div>
-
-            <!-- Gift 2: Virtual Flowers -->
-            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="flowersGift">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-blue-400"></div>
-                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Bouquet of Flowers</h3>
-                
-                <div class="grid grid-cols-3 gap-2 mb-4">
-                    <div class="polaroid">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f535a4a-3e30-443f-96e7-7dca8061b5cc.png" alt="Pink peonies in full bloom with morning dew drops" class="w-full h-32 object-cover" />
-                        <p class="text-center mt-2 text-sm">Pink Peonies</p>
-                    </div>
-                    <div class="polaroid">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9199dcaf-b6d0-4f5d-8532-7f6bc76ecf22.png" alt="White garden roses with soft focus background in golden light" class="w-full h-32 object-cover" />
-                        <p class="text-center mt-2 text-sm">White Roses</p>
-                    </div>
-                    <div class="polaroid">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d85fa26f-6248-423b-b297-67b10c8e09c7.png" alt="Purple lavender field at sunset with soft bokeh effect" class="w-full h-32 object-cover" />
-                        <p class="text-center mt-2 text-sm">Lavender</p>
-                    </div>
-                </div>
-                
-                <p class="text-gray-700 mb-4">
-                    Flowers may fade, but my admiration for you grows stronger each day. Here's a virtual bouquet to brighten your day.
-                </p>
-                <div class="mt-4 text-center">
-                    <button onclick="showConfetti('flowersGift')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-4 py-2 rounded-full text-sm transition-all">
-                        Send Flowers
-                    </button>
-                </div>
-            </div>
-
-            <!-- Gift 3: Memory Lane -->
-            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="memoryGift">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-red-400"></div>
-                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Memory Lane</h3>
-                
-                <div class="mb-4">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c2d454af-0b4c-4246-8676-b31b9578effc.png" alt="Silhouette of couple holding hands on beach at sunset" class="w-full h-48 object-cover rounded-lg" />
-                </div>
-                
-                <p class="text-gray-700 mb-4">
-                    Remember that time when we 
-                    <select class="bg-pink-50 border border-pink-200 rounded px-2 py-1" id="memorySelect">
-                        <option value="laughed together until our stomachs hurt">laughed together until our stomachs hurt</option>
-                        <option value="watched the sunrise on that special morning">watched the sunrise on that special morning</option>
-                        <option value="shared our dreams under the stars">shared our dreams under the stars</option>
-                        <option value="danced like no one was watching">danced like no one was watching</option>
-                    </select>?
-                    That memory always brings a smile to my face.
-                </p>
-                
-                <div class="mt-4 text-center">
-                    <button onclick="shareMemory()" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-4 py-2 rounded-full text-sm transition-all">
-                        Reminisce
-                    </button>
-                </div>
-            </div>
-
-            <!-- Gift 4: Love Notes -->
-            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden md:col-span-2 lg:col-span-1" id="notesGift">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-pink-400"></div>
-                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Little Love Notes</h3>
-                
-                <div class="space-y-3">
-                    <div class="bg-pink-50 p-3 rounded-lg">
-                        <p class="text-gray-700">You're the first thing I think about when I wake up and the last thing on my mind before I sleep.</p>
-                    </div>
-                    <div class="bg-pink-50 p-3 rounded-lg">
-                        <p class="text-gray-700">Your smile could light up the darkest room.</p>
-                    </div>
-                    <div class="bg-pink-50 p-3 rounded-lg">
-                        <p class="text-gray-700">I fall in love with you more each day, and I didn't even know that was possible.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-4">
-                    <input type="text" id="newNote" placeholder="Add your own note..." class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" />
-                    <button onclick="addNote()" class="mt-2 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm transition-all">
-                        Add Note
-                    </button>
-                </div>
-            </div>
-
-            <!-- Gift 5: Virtual Date -->
-            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden md:col-span-2" id="dateGift">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 to-teal-400"></div>
-                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Virtual Date Night</h3>
-                
-                <div class="flex flex-col md:flex-row gap-6">
-                    <div class="flex-1">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/560048d9-fa4e-4bf1-87ae-8efabc09061b.png" alt="Romantic candlelit dinner setup with wine glasses and table setting" class="w-full h-auto rounded-lg mb-4" />
-                        
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-blue-700 mb-2">Our Date Ideas:</h4>
-                            <ul class="list-disc list-inside text-blue-800 space-y-1">
-                                <li>Stargazing with hot chocolate</li>
-                                <li>Movie marathon with all your favorites</li>
-                                <li>Cooking your favorite meal together</li>
-                                <li>Virtual museum tour and discussion</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="flex-1">
-                        <div class="bg-pink-50 p-4 rounded-lg h-full">
-                            <h4 class="font-bold text-pink-700 mb-2">Plan Our Next Date:</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <label class="block text-sm text-gray-600 mb-1">Date Idea</label>
-                                    <select class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
-                                        <option>Choose an idea</option>
-                                        <option>Picnic in the park</option>
-                                        <option>Beach sunset walk</option>
-                                        <option>Home cooked dinner</option>
-                                        <option>Game night</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm text-gray-600 mb-1">Date</label>
-                                    <input type="date" class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" />
-                                </div>
-                                <div>
-                                    <label class="block text-sm text-gray-600 mb-1">Special Notes</label>
-                                    <textarea class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" rows="2" placeholder="Any special requests or plans..."></textarea>
-                                </div>
-                                <button onclick="showConfetti('dateGift')" class="w-full bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition-all">
-                                    Save Our Date
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gift 6: Virtual Hug -->
-            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="hugGift">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 to-orange-400"></div>
-                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Virtual Hug</h3>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-32 h-32 rounded-full bg-pink-100 flex items-center justify-center mb-4 relative">
-                        <div class="absolute inset-0 rounded-full border-4 border-pink-200 animate-ping opacity-75" style="animation-duration: 2s;"></div>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-                        </svg>
-                    </div>
-                    
-                    <p class="text-gray-700 text-center mb-6">
-                        Click the button below to receive a warm virtual hug. I wish I could be there to give you a real one!
-                    </p>
-                    
-                    <button onclick="sendHug()" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition-all transform hover:scale-105">
-                        Send Hug
-                    </button>
+                <div class="flex items-center">
+                    <span class="text-pink-400 text-sm dancing-font">Distance means so little when love means so much</span>
                 </div>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Final Message -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink-50 to-purple-50">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold dancing-font text-pink-700 mb-8">Just For You</h2>
-            <div class="prose prose-lg text-gray-700 mb-8">
-                <p>
-                    This is more than just a website. It's a collection of thoughts, feelings, and moments - all dedicated to you.
-                </p>
-                <p>
-                    You make every day brighter just by being you, and I wanted to create something that shows how much you mean to me.
-                </p>
-                <p>
-                    No matter where life takes us, I'll always be grateful to have you in my life.
-                </p>
-            </div>
-            <div class="heart text-pink-500 text-6xl mb-8">♥</div>
-        </div>
-    </section>
-
-    <script>
-        // Smooth scrolling
-        function scrollToGifts() {
-            document.getElementById('gifts').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Confetti effect
-        function showConfetti(elementId) {
-            const element = document.getElementById(elementId);
-            const colors = ['#f472b6', '#ec4899', '#db2777', '#be185d', '#9d174d'];
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <!-- Our Love Story -->
+        <section id="love-story" class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-pink-600 dancing-font mb-8">Our Love Story</h2>
             
-            // Create confetti elements
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- First Love -->
+                <div class="message-box bg-white rounded-xl shadow-md overflow-hidden p-6 hover:bg-pink-50">
+                    <img src="https://cdn.discordapp.com/attachments/1295322130422042624/1406722401563049984/pookiee.png?ex=68a37fd4&is=68a22e54&hm=1db155ab3d3168b63c12cfa1d593e4242bd00ddc7aa0819e94da6852b97cc85c&" alt="Ghibli-style closeup of beautiful doe eyes with long lashes gazing softly, warm brown irises with golden reflections, surrounded by soft pastel pink tones" class="w-full h-48 object-cover rounded-md mb-4" />
+                    <h3 class="text-xl font-semibold text-pink-700 mb-2">When I First Fell for Your Eyes</h3>
+                    <p class="text-gray-600">I still remember that day.. 11 Sept 2024 approx 1:47 pm I first  fell in love with ur eyes.. that moment I saw ur eyes I swear I got lots in them.. 👀 It felt like whole galaxies were spinning inside them.. 😖💖.. those 10 sec changed everything.. Now I've found my peace in ur eyes.. 👀✨💖💗.</p>
+                    <div class="mt-4 flex items-center">
+                        <span class="text-xs text-pink-400 dancing-font">"The first sip of love was from your gaze"</span>
+                    </div>
+                </div>
+                
+                <!-- Second Love -->
+                <div class="message-box bg-white rounded-xl shadow-md overflow-hidden p-6 hover:bg-pink-50">
+                    <img src="https://cdn.discordapp.com/attachments/1295322130422042624/1406723091136250027/WhatsApp_Image_2025-08-02_at_01.41.09_aa9d5b50-pica.png?ex=68a38078&is=68a22ef8&hm=023335455ccad8922171155945bd4bfb9ec078e6d4bc716ffc7bbcb409dbf63e&" alt="Ghibli-style couple sitting under a cherry blossom tree, holding hands gently with petals falling around them, soft pink and purple hues, peaceful atmosphere" class="w-full h-48 object-cover rounded-md mb-4" />
+                    <h3 class="text-xl font-semibold text-pink-700 mb-2">When I Fell Again Without Reason</h3>
+                    <p class="text-gray-600">I don't just love uh kitty 🍃.. I breathe uh.. every look.. every lil thing Abt uh feels like my reason to keep loving uh.. uh are not in just my heart.. uh are my heart 🫴🏼💗.. without uh nothing's right.. with uh I found my reason to exit.. ✨💖🍃</p>
+                    <div class="mt-4 flex items-center">
+                        <span class="text-xs text-pink-400 dancing-font">"Loving you needs no justification"</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Special Memory -->
+            <div class="mt-8 message-box bg-gradient-to-r from-pink-100 to-purple-100 rounded-xl shadow-md overflow-hidden p-6 text-center">
+                <img src="https://cdn.discordapp.com/attachments/1295322130422042624/1406715146776219648/download_11_1.jpeg?ex=68a37912&is=68a22792&hm=86c9b5e534ee894782e38ef4e6e713709c7f30706d5d9824fcc19990da641a2f&" alt="Ghibli-style romantic scene of hands putting anklets on delicate feet, warm sunset colors in background, soft focus on the gesture, very intimate and loving composition" class="w-full h-64 object-cover rounded-md mb-4 mx-auto" />
+                <h3 class="text-2xl font-semibold text-pink-700 mb-4 dancing-font">My Promise to You</h3>
+                <p class="text-gray-700 mb-4">One day when the air smells sweet with jasmine and Monsoon leaves the grass wet and shining 🫴🏼✨.. I'll kneel in front of uh and put anklets on ur feet with my own hands.. every time they ring.. it'll be like they're telling the world u're mine.. that u're loved.. every single step will remind uh how much uh mean to me.. ✨💖💗</p>
+                <div id="weather-display" class="inline-block px-4 py-2 bg-white rounded-lg shadow text-pink-600 text-sm dancing-font">Today's romantic weather mood...</div>
+            </div>
+        </section>
+        
+        <!-- Virtual Gifts -->
+        <section id="virtual-gifts" class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-pink-600 dancing-font mb-8">Virtual Gifts for You</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gift 1 -->
+<div class="gift bg-white rounded-xl shadow-md overflow-hidden p-4 text-center cursor-pointer h-full flex flex-col" style="outline: rgb(0, 0, 0) dotted 3px; outline-offset: 1px;">
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3e264534-6547-4b42-8736-232a820a25f5.png" 
+         alt="Ghibli-style pastel colored flower bouquet with roses, peonies and baby's breath, wrapped in delicate lace, soft watercolor style" 
+         class="w-full h-40 object-cover rounded-md mb-4 mx-auto">
+    
+    <h3 class="text-xl font-semibold text-pink-700 mb-2">Bouquet of Forever</h3>
+    <p class="text-gray-600 flex-grow">A collection of flowers that never wilt, just like my love for you.</p>
+    
+    <!-- Updated button with link -->
+    <a href="https://gifft.me/o/s/n9wiqiezp9n6zawz8vxj7vvu" target="_blank">
+        <button class="mt-4 px-4 py-2 bg-pink-100 text-pink-600 rounded-lg hover:bg-pink-200 transition-colors gift-button">
+            Open Gift
+        </button>
+    </a>
+</div>
+                
+                <!-- Gift 2 -->
+<div class="gift-box"> 
+  <div class="gift bg-white rounded-xl shadow-md overflow-hidden p-4 text-center cursor-pointer h-full flex flex-col">
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/19e54637-39a1-4b38-8089-1a09d0161a26.png" 
+         alt="Ghibli-style music notes floating around an old record player, warm golden tones, whimsical floating symbols, cozy atmosphere" 
+         class="w-full h-40 object-cover rounded-md mb-4 mx-auto" />
+         
+    <h3 class="text-xl font-semibold text-pink-700 mb-2">Our Love Playlist</h3>
+    <p class="text-gray-600 flex-grow">Songs that make me think of you, wherever you are.</p>
+
+    <!-- Spotify link button -->
+    <a href="https://open.spotify.com/blend/taste-match/dc459a0b682c2215?si=ylQiFpm2QB2IQJrbhl4Tgw&fallback=getapp&blendDecoration=5f9c38d2" 
+       target="_blank" 
+       class="mt-4 px-4 py-2 bg-pink-100 text-pink-600 rounded-lg hover:bg-pink-200 transition-colors inline-block">
+       Open Gift
+    </a>
+  </div>
+</div>
+                
+                <!-- Gift 3 -->
+                <div class="gift-box">
+                    <div class="gift bg-white rounded-xl shadow-md overflow-hidden p-4 text-center cursor-pointer h-full flex flex-col">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/01a24620-b228-4110-b5cd-474936c4423d.png" alt="Ghibli-style cherry blossom tree at night with glowing lanterns, petals falling gently, magical purple-pink hues, dreamy atmosphere" class="w-full h-40 object-cover rounded-md mb-4 mx-auto" />
+                        <h3 class="text-xl font-semibold text-pink-700 mb-2">A Sticker Pack</h3>
+                        <p class="text-gray-600 flex-grow">A special sticker pack made just for my cute Kitty 🐾</p>
+                        <button class="mt-4 px-4 py-2 bg-pink-100 text-pink-600 rounded-lg hover:bg-pink-200 transition-colors gift-button">Open Gift</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Love Notes -->
+        <section id="notes" class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-pink-600 dancing-font mb-8">Little Love Notes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-pink-50 p-4 rounded-lg shadow-inner border border-pink-200 transform rotate-1 hover:rotate-0 transition-transform">
+                    <p class="text-pink-700 dancing-font text-lg">"Good morning honey ✨💖.. The sun rises for uh 👀💗"</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg shadow-inner border border-purple-200 transform -rotate-1 hover:rotate-0 transition-transform">
+                    <p class="text-purple-700 dancing-font text-lg">"Ur Voice is my favourite sound in the world ❣️🍃"</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg shadow-inner border border-blue-200 transform rotate-2 hover:rotate-0 transition-transform">
+                    <p class="text-blue-700 dancing-font text-lg">"Count the stars if uh ever doubt how much I love uh ✨"</p>
+                </div><div class="bg-yellow-50 p-4 rounded-lg shadow-inner border border-yellow-200 transform -rotate-2 hover:rotate-0 transition-transform">
+                    <p class="text-yellow-700 dancing-font text-lg">"Ur name is the safest word in my dictionary 🫴🏼💖"</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg shadow-inner border border-green-200 transform rotate-1 hover:rotate-0 transition-transform">
+                    <p class="text-green-700 dancing-font text-lg">"I love your little habits more than uh know 😚"</p>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg shadow-inner border border-red-200 transform -rotate-1 hover:rotate-0 transition-transform">
+                    <p class="text-red-700 dancing-font text-lg">"Ellowww kitty 😚🐾.. panda just wants to say ellow ✨👀"</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Distance Counter -->
+        <section class="bg-gradient-to-r from-pink-100 to-indigo-100 rounded-xl shadow-lg p-6 text-center mb-12">
+            <h2 class="text-2xl font-bold text-pink-700 dancing-font mb-4">Long Distance Love Counter</h2>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="bg-white p-4 rounded-lg shadow-inner">
+                    <div class="text-3xl font-bold text-pink-600" id="days">0</div>
+                    <div class="text-sm text-pink-400 mt-1">Days Together</div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-inner">
+                    <div class="text-3xl font-bold text-purple-600" id="hours">0</div>
+                    <div class="text-sm text-purple-400 mt-1">Hours Apart</div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-inner">
+                    <div class="text-3xl font-bold text-indigo-600" id="minutes">0</div>
+                    <div class="text-sm text-indigo-400 mt-1">Minutes Thinking of You</div>
+                </div>
+            </div>
+            <p class="mt-6 text-pink-600">No matter the distance, our hearts beat as one.</p>
+        </section>
+        <script>
+    function updateCounter() {
+        // Set the start date and time (June 4, 2025, 2:27 AM)
+        const startDate = new Date(2025, 5, 4, 2, 27); // Month is 0-indexed
+        const now = new Date();
+
+        // Calculate the difference in milliseconds
+        const diffTime = now - startDate;
+
+        // Calculate days, hours, and minutes
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+
+        // Update the HTML elements
+        document.getElementById('days').textContent = diffDays >= 0 ? diffDays : 0;
+        document.getElementById('hours').textContent = diffHours >= 0 ? diffHours : 0;
+        document.getElementById('minutes').textContent = diffMinutes >= 0 ? diffMinutes : 0;
+    }
+
+    // Update the counter every minute
+    setInterval(updateCounter, 60000);
+    // Initial call to set the counter immediately
+    updateCounter();
+</script>  
+        <!-- Kiss Button -->
+        <div class="text-center mb-12">
+            <button id="kiss-btn" class="px-8 py-3 bg-gradient-to-r from-pink-400 to-red-400 text-white rounded-full shadow-lg dancing-font text-xl hover:from-pink-500 hover:to-red-500 transition-all transform hover:scale-105 active:scale-95">
+                Send Virtual Kiss
+            </button>
+            <div id="kiss-message" class="mt-4 text-pink-600 hidden">
+                <p class="dancing-font text-xl">Mwah! 💋 Kiss delivered to Kitty🐾!</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-pink-900 text-white py-8" style="outline: rgb(0, 0, 0) dotted 3px; outline-offset: 1px;">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <img src="https://cdn.discordapp.com/attachments/1295322130422042624/1406726325535768687/Airbrush-Image-Enhancer-1755459722919.jpg?ex=68a3837b&is=68a231fb&hm=0d75e9b30a637bf024aa26cba0d8d7124b05cea4f5706cdc294d7e5883b898ae&" alt="Studio Ghibli style silhouette of couple holding hands against sunset, simple line art in white, floating cherry blossom petals, soft dreamy pastel background" class="mx-auto mb-4" style="">
+            <p class="dancing-font text-xl mb-4">Created with love for my Kitty</p>
+            <p class="text-pink-200 text-sm">Distance is just a test of how far love can travel.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heart-container');
+            const heartCount = 50;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.top = `${Math.random() * 100}vh`;
+                heart.style.animationDelay = `${Math.random() * 4}s`;
+                heart.style.transform = `rotate(45deg) scale(${Math.random() * 0.5 + 0.5})`;
+                container.appendChild(heart);
+            }
+        }
+        
+        // Weather display
+        function updateWeather() {
+            const weather = document.getElementById('weather-display');
+            const weatherOptions = [
+                "Perfect for slow dancing in the rain",
+                "Golden sunset lighting just for us",
+                "Cool breeze carrying my thoughts to you",
+                "Starry night whispering love poems",
+                "Dew-kissed morning awaiting your smile"
+            ];
+            weather.textContent = weatherOptions[Math.floor(Math.random() * weatherOptions.length)];
+        }
+        
+        // Distance counter
+        function updateCounter() {
+            // Set your anniversary date here (YYYY, MM-1, DD)
+            const anniversary = new Date(2023, 5, 15); // Example: June 15, 2023
+            const now = new Date();
+            
+            const diffTime = Math.abs(now - anniversary);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('days').textContent = diffDays;
+            document.getElementById('hours').textContent = now.getHours();
+            document.getElementById('minutes').textContent = now.getMinutes();
+        }
+        
+        // Kiss button
+        document.getElementById('kiss-btn').addEventListener('click', function() {
+            const message = document.getElementById('kiss-message');
+            message.classList.remove('hidden');
+            
+            // Add confetti effect
             for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'absolute';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.borderRadius = '50%';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.top = '-10px';
-                confetti.style.opacity = '0.8';
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                
-                // Animation
-                const animation = confetti.animate([
-                    { top: '-10px', opacity: 1 },
-                    { top: '100%', opacity: 0 }
-                ], {
-                    duration: 1000 + Math.random() * 2000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
-                });
-                
-                element.appendChild(confetti);
-                
-                // Remove confetti after animation
-                animation.onfinish = () => {
-                    confetti.remove();
-                };
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.bottom = '0';
+                    heart.style.position = 'fixed';
+                    heart.style.zIndex = '100';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 100);
             }
             
-            // Show a little message
             setTimeout(() => {
-                alert("Sent with love! ♥");
-            }, 800);
-        }
-
-        // Memory selector
-        function shareMemory() {
-            const memorySelect = document.getElementById('memorySelect');
-            alert(`Remember when we ${memorySelect.value}? That was such a special moment.`);
-        }
-
-        // Add notes
-        function addNote() {
-            const noteInput = document.getElementById('newNote');
-            if (noteInput.value.trim() === '') return;
-            
-            const notesContainer = document.querySelector('#notesGift .space-y-3');
-            const newNote = document.createElement('div');
-            newNote.className = 'bg-pink-50 p-3 rounded-lg';
-            newNote.innerHTML = `<p class="text-gray-700">${noteInput.value}</p>`;
-            notesContainer.appendChild(newNote);
-            
-            noteInput.value = '';
-            
-            // Show feedback
-            const originalText = noteInput.placeholder;
-            noteInput.placeholder = 'Note added! ♥';
-            setTimeout(() => {
-                noteInput.placeholder = originalText;
-            }, 2000);
-        }
-
-        // Virtual hug
-        function sendHug() {
-            showConfetti('hugGift');
-            
-            // Animation
-            const hugButton = document.querySelector('#hugGift button');
-            const originalText = hugButton.innerText;
-            
-            hugButton.innerHTML = '<span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>Hug Sent!</span>';
-            hugButton.disabled = true;
-            
-            setTimeout(() => {
-                hugButton.innerHTML = originalText;
-                hugButton.disabled = false;
+                message.classList.add('hidden');
             }, 3000);
-        }
+        });
+        
+        // Gift buttons
+        document.querySelectorAll('.gift-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const giftBox = this.closest('.gift');
+                giftBox.style.transform = 'rotateY(180deg)';
+                
+                setTimeout(() => {
+                    alert("Surprise! This virtual gift is just a small token of how much I love you 💖");
+                    giftBox.style.transform = '';
+                }, 1000);
+            });
+        });
+        
+        // Save note
+        document.getElementById('save-note').addEventListener('click', function() {
+            const note = document.getElementById('love-note').value;
+            if (note.trim() !== '') {
+                alert(`Note saved: "${note}"\n\nI'll keep all your sweet words safe in my heart ❤️`);
+                document.getElementById('love-note').value = '';
+            }
+        });
+        
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            updateWeather();
+            updateCounter();
+            setInterval(updateCounter, 30000); // Update every minute
+        });
     </script>
 </body>
 </html>
-
-```
