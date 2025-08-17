@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Someone Special</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        .heart {
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .gift-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gift-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .polaroid {
+            background: white;
+            padding: 1rem 1rem 3rem;
+            box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+            transform: rotate(3deg);
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center bg-pink-50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-pink-100 to-transparent opacity-80"></div>
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/66f21c4d-7f53-4a85-ad16-30650110e834.png" alt="Soft pink rose petals scattered on wooden background with soft lighting" class="absolute inset-0 w-full h-full object-cover" />
+        
+        <div class="z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold dancing-font text-pink-700 mb-4">For Someone Special</h1>
+            <p class="text-xl md:text-2xl dancing-font text-pink-600 mb-8">These gifts are just for you</p>
+            
+            <div class="flex justify-center">
+                <button onclick="scrollToGifts()" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center">
+                    <span class="mr-2">Open Gifts</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating hearts in background -->
+        <div class="heart absolute text-pink-300 text-4xl top-1/4 left-1/4 opacity-70 floating" style="animation-delay: 0s;">♥</div>
+        <div class="heart absolute text-pink-200 text-3xl top-1/3 right-1/5 opacity-70 floating" style="animation-delay: 0.5s;">♥</div>
+        <div class="heart absolute text-pink-100 text-5xl bottom-1/4 left-1/3 opacity-70 floating" style="animation-delay: 1s;">♥</div>
+    </header>
+
+    <!-- Gifts Section -->
+    <section id="gifts" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold dancing-font text-pink-700 mb-4">Virtual Gifts For You</h2>
+            <div class="w-24 h-1 bg-pink-400 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Gift 1: Personalized Message -->
+            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="messageGift">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-400 to-purple-400"></div>
+                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Special Message</h3>
+                <div class="prose prose-pink max-w-none">
+                    <p class="text-gray-700 mb-4">
+                        Every time I think of you, my heart skips a beat. You bring so much joy and light into my life, and I'm forever grateful to have you by my side.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Like the stars that shine in the night sky, your presence makes my world brighter and more beautiful.
+                    </p>
+                    <p class="text-gray-700">
+                        This is just a little something to remind you how much you mean to me.
+                    </p>
+                </div>
+                <div class="mt-6 text-center">
+                    <button onclick="showConfetti('messageGift')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-4 py-2 rounded-full text-sm transition-all">
+                        Send Heart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gift 2: Virtual Flowers -->
+            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="flowersGift">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-blue-400"></div>
+                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Bouquet of Flowers</h3>
+                
+                <div class="grid grid-cols-3 gap-2 mb-4">
+                    <div class="polaroid">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f535a4a-3e30-443f-96e7-7dca8061b5cc.png" alt="Pink peonies in full bloom with morning dew drops" class="w-full h-32 object-cover" />
+                        <p class="text-center mt-2 text-sm">Pink Peonies</p>
+                    </div>
+                    <div class="polaroid">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9199dcaf-b6d0-4f5d-8532-7f6bc76ecf22.png" alt="White garden roses with soft focus background in golden light" class="w-full h-32 object-cover" />
+                        <p class="text-center mt-2 text-sm">White Roses</p>
+                    </div>
+                    <div class="polaroid">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d85fa26f-6248-423b-b297-67b10c8e09c7.png" alt="Purple lavender field at sunset with soft bokeh effect" class="w-full h-32 object-cover" />
+                        <p class="text-center mt-2 text-sm">Lavender</p>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Flowers may fade, but my admiration for you grows stronger each day. Here's a virtual bouquet to brighten your day.
+                </p>
+                <div class="mt-4 text-center">
+                    <button onclick="showConfetti('flowersGift')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-4 py-2 rounded-full text-sm transition-all">
+                        Send Flowers
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gift 3: Memory Lane -->
+            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="memoryGift">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-red-400"></div>
+                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Memory Lane</h3>
+                
+                <div class="mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c2d454af-0b4c-4246-8676-b31b9578effc.png" alt="Silhouette of couple holding hands on beach at sunset" class="w-full h-48 object-cover rounded-lg" />
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Remember that time when we 
+                    <select class="bg-pink-50 border border-pink-200 rounded px-2 py-1" id="memorySelect">
+                        <option value="laughed together until our stomachs hurt">laughed together until our stomachs hurt</option>
+                        <option value="watched the sunrise on that special morning">watched the sunrise on that special morning</option>
+                        <option value="shared our dreams under the stars">shared our dreams under the stars</option>
+                        <option value="danced like no one was watching">danced like no one was watching</option>
+                    </select>?
+                    That memory always brings a smile to my face.
+                </p>
+                
+                <div class="mt-4 text-center">
+                    <button onclick="shareMemory()" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-4 py-2 rounded-full text-sm transition-all">
+                        Reminisce
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gift 4: Love Notes -->
+            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden md:col-span-2 lg:col-span-1" id="notesGift">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-pink-400"></div>
+                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Little Love Notes</h3>
+                
+                <div class="space-y-3">
+                    <div class="bg-pink-50 p-3 rounded-lg">
+                        <p class="text-gray-700">You're the first thing I think about when I wake up and the last thing on my mind before I sleep.</p>
+                    </div>
+                    <div class="bg-pink-50 p-3 rounded-lg">
+                        <p class="text-gray-700">Your smile could light up the darkest room.</p>
+                    </div>
+                    <div class="bg-pink-50 p-3 rounded-lg">
+                        <p class="text-gray-700">I fall in love with you more each day, and I didn't even know that was possible.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <input type="text" id="newNote" placeholder="Add your own note..." class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" />
+                    <button onclick="addNote()" class="mt-2 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm transition-all">
+                        Add Note
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gift 5: Virtual Date -->
+            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden md:col-span-2" id="dateGift">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 to-teal-400"></div>
+                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Virtual Date Night</h3>
+                
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-1">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/560048d9-fa4e-4bf1-87ae-8efabc09061b.png" alt="Romantic candlelit dinner setup with wine glasses and table setting" class="w-full h-auto rounded-lg mb-4" />
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-blue-700 mb-2">Our Date Ideas:</h4>
+                            <ul class="list-disc list-inside text-blue-800 space-y-1">
+                                <li>Stargazing with hot chocolate</li>
+                                <li>Movie marathon with all your favorites</li>
+                                <li>Cooking your favorite meal together</li>
+                                <li>Virtual museum tour and discussion</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1">
+                        <div class="bg-pink-50 p-4 rounded-lg h-full">
+                            <h4 class="font-bold text-pink-700 mb-2">Plan Our Next Date:</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Date Idea</label>
+                                    <select class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                                        <option>Choose an idea</option>
+                                        <option>Picnic in the park</option>
+                                        <option>Beach sunset walk</option>
+                                        <option>Home cooked dinner</option>
+                                        <option>Game night</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Date</label>
+                                    <input type="date" class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Special Notes</label>
+                                    <textarea class="w-full px-3 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" rows="2" placeholder="Any special requests or plans..."></textarea>
+                                </div>
+                                <button onclick="showConfetti('dateGift')" class="w-full bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition-all">
+                                    Save Our Date
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gift 6: Virtual Hug -->
+            <div class="gift-card bg-white rounded-xl p-6 relative overflow-hidden" id="hugGift">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 to-orange-400"></div>
+                <h3 class="text-2xl font-bold text-pink-700 mb-4 dancing-font">Virtual Hug</h3>
+                
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full bg-pink-100 flex items-center justify-center mb-4 relative">
+                        <div class="absolute inset-0 rounded-full border-4 border-pink-200 animate-ping opacity-75" style="animation-duration: 2s;"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                    </div>
+                    
+                    <p class="text-gray-700 text-center mb-6">
+                        Click the button below to receive a warm virtual hug. I wish I could be there to give you a real one!
+                    </p>
+                    
+                    <button onclick="sendHug()" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition-all transform hover:scale-105">
+                        Send Hug
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink-50 to-purple-50">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold dancing-font text-pink-700 mb-8">Just For You</h2>
+            <div class="prose prose-lg text-gray-700 mb-8">
+                <p>
+                    This is more than just a website. It's a collection of thoughts, feelings, and moments - all dedicated to you.
+                </p>
+                <p>
+                    You make every day brighter just by being you, and I wanted to create something that shows how much you mean to me.
+                </p>
+                <p>
+                    No matter where life takes us, I'll always be grateful to have you in my life.
+                </p>
+            </div>
+            <div class="heart text-pink-500 text-6xl mb-8">♥</div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        function scrollToGifts() {
+            document.getElementById('gifts').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Confetti effect
+        function showConfetti(elementId) {
+            const element = document.getElementById(elementId);
+            const colors = ['#f472b6', '#ec4899', '#db2777', '#be185d', '#9d174d'];
+            
+            // Create confetti elements
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = '50%';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.opacity = '0.8';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // Animation
+                const animation = confetti.animate([
+                    { top: '-10px', opacity: 1 },
+                    { top: '100%', opacity: 0 }
+                ], {
+                    duration: 1000 + Math.random() * 2000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
+                });
+                
+                element.appendChild(confetti);
+                
+                // Remove confetti after animation
+                animation.onfinish = () => {
+                    confetti.remove();
+                };
+            }
+            
+            // Show a little message
+            setTimeout(() => {
+                alert("Sent with love! ♥");
+            }, 800);
+        }
+
+        // Memory selector
+        function shareMemory() {
+            const memorySelect = document.getElementById('memorySelect');
+            alert(`Remember when we ${memorySelect.value}? That was such a special moment.`);
+        }
+
+        // Add notes
+        function addNote() {
+            const noteInput = document.getElementById('newNote');
+            if (noteInput.value.trim() === '') return;
+            
+            const notesContainer = document.querySelector('#notesGift .space-y-3');
+            const newNote = document.createElement('div');
+            newNote.className = 'bg-pink-50 p-3 rounded-lg';
+            newNote.innerHTML = `<p class="text-gray-700">${noteInput.value}</p>`;
+            notesContainer.appendChild(newNote);
+            
+            noteInput.value = '';
+            
+            // Show feedback
+            const originalText = noteInput.placeholder;
+            noteInput.placeholder = 'Note added! ♥';
+            setTimeout(() => {
+                noteInput.placeholder = originalText;
+            }, 2000);
+        }
+
+        // Virtual hug
+        function sendHug() {
+            showConfetti('hugGift');
+            
+            // Animation
+            const hugButton = document.querySelector('#hugGift button');
+            const originalText = hugButton.innerText;
+            
+            hugButton.innerHTML = '<span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>Hug Sent!</span>';
+            hugButton.disabled = true;
+            
+            setTimeout(() => {
+                hugButton.innerHTML = originalText;
+                hugButton.disabled = false;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+
+```
